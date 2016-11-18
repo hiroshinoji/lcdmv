@@ -26,7 +26,7 @@ object InputOptions extends Options {
   @Option(gloss = "Maximum sentence length") var maxLength = 10
   @Option(gloss = "Mimimum sentence length") var minLength = 0
 
-  @Option(gloss = "How to read corpus at training? (active means calculating vocaborary only from filtered sentences with e.g., maxLength)") var howToRead = HowToReadAtTrain.allTrainAndTest
+  @Option(gloss = "How to read corpus at training? (active means calculating vocaborary only from filtered sentences with e.g., maxLength)") var howToRead = HowToReadAtTrain.allTrain
 
   @Option(gloss = "Include test data as training data") var includeTest = true
   @Option(gloss = "Remove punctuations (. in universal tag))") var removePunc = true
@@ -56,8 +56,8 @@ object TrainingOptions extends Options {
   @Option(gloss="Shuffle with a random seed") var shuffle = true
   @Option(gloss="Training method") var trainMethod = TrainMethod.em
   @Option(gloss="Initializer") var initializer = Initializer.uniform
-  @Option(gloss="Reset root to uniform distribution") var uniformRoot = true
-  @Option(gloss="Normalize after the initial E-step") var doNormalize = false
+  @Option(gloss="Reset root to uniform distribution") var uniformRoot = false
+  @Option(gloss="Normalize after the initial E-step") var doNormalize = true
 
   @Option(gloss="Filter with active word pairs (should be true to reproduce the score in Berg-kirkpatric et al. (2010); Now only supports with pos inputs)") var filterWithActiveWordPairs = false
 
@@ -92,7 +92,7 @@ object ParserOptions extends Options {
 
 object ReguralizeOptions extends Options {
   @Option(gloss="Size of batches to use if useStochastic and you give a BatchDiffFunction") var batchSize = 512
-  @Option(gloss="Regularization constant to use") var regularization = 0.0
+  @Option(gloss="Regularization constant to use") var regularization = 10
   @Option(gloss="Rate of change to use, only applies to SGD") var alpha = 0.5
   // @Option(gloss="How many iterations to do") var numIterations = 10
   @Option(gloss="If true, use L1 regularization. Otherwise, use L2") var useL1 = false
