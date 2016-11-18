@@ -27,7 +27,7 @@ libraryDependencies ++= Seq(
 
 scalacOptions ++= Seq()
 
-mainClass in assembly := Some("dmv.Driver")
+mainClass in assembly := Some("lcdmv.Driver")
 
 scalacOptions ++= Seq(
   "-deprecation",
